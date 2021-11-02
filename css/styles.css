@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+/* 
+    Dark Blue - #35648C
+    Medium - #6595BF
+    Blue/Green Medium- #6FA8BF
+    Light - #A3C9D9
+    Accent  - #F2DC99
+*/
+
+body {
+    font-family: 'Fira Code', monospace;
+}
+
+header {
+    background-color: #A3C9D9;
+}
