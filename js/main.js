@@ -13,14 +13,19 @@ const menuClick = e => {
 const adjustFooterToContentSize = (e) => {
     console.log(e)
     if (e.type === 'resize' && window.innerWidth < 400) {
+        console.log('nope')
         return;
     }
     const sh = document.scrollingElement.scrollHeight;
+
+    // changing bottom property of footer to push down triggered additional resize calls
+    // and pushed the footer up several pixels after it was sent to bottom of page.
+    // changing position to relative ensures proper placement directly after the content
     const footer = document.querySelector('.footer');
     if (sh > window.innerHeight) {
-        footer.style.bottom = `${window.innerHeight - sh}px`;
+        footer.style.position = 'relative';
     } else {
-        footer.style.bottom = '0px';
+        footer.style.position = 'absolute';
     }
 }
 
