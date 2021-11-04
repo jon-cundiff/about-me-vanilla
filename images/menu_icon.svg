@@ -1,5 +1,5 @@
 <?xml-stylesheet href="../css/styles.css" type="text/css"?>
-<svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" width="30px" height="21px">
+<svg xmlns="http://www.w3.org/2000/svg" class="menu-svg" width="30px" height="21px">
 
   <style>
     rect {
