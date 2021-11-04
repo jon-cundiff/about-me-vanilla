@@ -1,17 +1,120 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
-/* 
-    Dark Blue - #35648C
-    Medium - #6595BF
-    Blue/Green Medium- #6FA8BF
-    Light - #A3C9D9
-    Accent  - #F2DC99
-*/
+:root {
+    --main-dark: #35648c;
+    --main-med: #6595BF;
+    --main-light: #A3C9D9;
+    --secondary: #6FA8BF;
+    --accent: #F2DC99;
+}
 
 body {
     font-family: 'Fira Code', monospace;
+    margin: 0;
+    padding: 0 0 0;
 }
 
+/* MOBILE FIRST */
+
+/* 
+    Header
+*/
+
 header {
-    background-color: #A3C9D9;
+    background-color: var(--main-light);
+    position: relative;
+    z-index: 2;
+    height: 6.5em;
+    padding: .25em 0 0;
+    margin: 0;
+}
+
+.logo-container {
+    margin-top: 1em;
+    text-align: center;
+}
+
+/* 
+    menu
+*/
+
+.menu {
+    background-color: var(--main-dark);
+}
+
+.menu-icon {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+.menu-header.menu-active {
+    display: block;
+    position: relative;
+    border-top: 2px var(--accent) dashed;
+    border-bottom: 2px var(--accent) dashed;
+
+}
+
+.menu-header {
+    display: none;
+}
+
+.menu-header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.menu-header ul li {
+    padding: .7em 0;
+    text-align: center;
+    color: var(--main-light);
+}
+
+.menu-header ul li:focus, 
+.menu-header ul li:hover{
+    background-color: var(--secondary);
+    color:var(--main-dark);
+    cursor: pointer;
+}
+
+.menu-header ul li:not(:last-child) {
+    border-bottom: 1px var(--accent) solid;
+}
+
+/* 
+    menu_icon.svg
+*/
+.bar {
+    fill: var(--main-dark);
+}
+
+.menu-active .bar {
+    fill: var(--main-med)
+}
+
+/* 
+    footer
+*/  
+
+.menu-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+
+.menu-footer ul li {
+    display: inline-block;
+}
+
+.gh a p {
+    text-align: center;
+    margin-top: .1 em;
+}
+
+.gh a img {
+    margin: 0 auto;
+    display: block;
 }

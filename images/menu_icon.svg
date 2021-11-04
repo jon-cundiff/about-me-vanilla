@@ -1,0 +1,15 @@
+<?xml-stylesheet href="../css/styles.css" type="text/css"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="menu-icon" width="30px" height="21px">
+
+  <style>
+    rect {
+      fill: black;
+      width: 30px;
+      height: 5px;
+      rx: 3px
+    }
+  </style>
+  <rect class="bar"></rect>
+  <rect y="8" class="bar"></rect>
+  <rect y="16" class="bar"></rect>
+</svg>
