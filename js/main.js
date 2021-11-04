@@ -1,5 +1,7 @@
-const menuObj = document.querySelector('.menu-button');
-const menuHeader = document.querySelector('.menu-header');
+// initialize element references, define once loaded
+let menuObj;
+let menuHeader;
+let menuIcon;
 
 let menuActive = false;
 
@@ -29,18 +31,28 @@ const adjustFooterToContentSize = (e) => {
     }
 }
 
-let menuIcon;
-menuObj.addEventListener('load', () => {
-    // Need to wait until Object element loads before can grab elements in the SVG
-    menuIcon = menuObj.contentDocument.querySelector('.menu-svg');
-    menuIcon.addEventListener('click', menuClick);
-});
+window.onresize = adjustFooterToContentSize;
 
-window.onload = window.onresize = adjustFooterToContentSize;
+const loadElement = (el) => {
+    return new Promise(async(resolve) => {
+        const resp = await fetch(`./layout/${el}.html`)
+        const rawHTML = await resp.text();
+        parsed = new DOMParser().parseFromString(rawHTML, 'text/html');
+        resolve(parsed.body.firstElementChild);           
+    })    
+}
 
-const para = document.querySelector('p');
-
-para.addEventListener('click', () => {
-    para.style.display = 'none';
-    para.style.visibility = 'hidden';
-})
+window.onload = async() => {
+    const headerEl = await loadElement('header');
+    const footerEl = await loadElement('footer');
+    const mainContent = document.querySelector('#main');
+    mainContent.parentNode.insertBefore(headerEl, mainContent);
+    mainContent.parentNode.append(footerEl);
+    menuObj = document.querySelector('.menu-button');
+    menuHeader = document.querySelector('.menu-header');
+    menuObj.addEventListener('load', () => {
+        // Need to wait until Object element loads before can grab elements in the SVG
+        menuIcon = menuObj.contentDocument.querySelector('.menu-svg');
+        menuIcon.addEventListener('click', menuClick);
+    });
+}
