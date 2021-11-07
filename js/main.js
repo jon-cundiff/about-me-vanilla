@@ -12,14 +12,8 @@ const menuClick = e => {
     menuHeader.classList[clMethod]('menu-active');
 }
 
-const adjustFooterToContentSize = (e) => {
-    console.log(e)
-    if (e.type === 'resize' && window.innerWidth < 400) {
-        console.log('nope')
-        return;
-    }
+const adjustFooterToContentSize = () => {
     const sh = document.scrollingElement.scrollHeight;
-
     // changing bottom property of footer to push down triggered additional resize calls
     // and pushed the footer up several pixels after it was sent to bottom of page.
     // changing position to relative ensures proper placement directly after the content
@@ -55,4 +49,6 @@ window.onload = async() => {
         menuIcon = menuObj.contentDocument.querySelector('.menu-svg');
         menuIcon.addEventListener('click', menuClick);
     });
+
+    adjustFooterToContentSize();
 }

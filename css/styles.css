@@ -12,6 +12,7 @@ body {
     font-family: 'Fira Code', monospace;
     margin: 0;
     padding: 0 0 0;
+    font-size: .9em;
 }
 
 /* MOBILE FIRST */
@@ -69,9 +70,13 @@ header {
     list-style-type: none;
 }
 
-.menu-header ul li {
+.menu-header ul li{
     padding: .7em 0;
     text-align: center;
+}
+
+.menu-header ul li a {
+    text-decoration: none;
     color: var(--main-light);
 }
 
@@ -150,4 +155,33 @@ header {
 
 #main {
     padding: 7em 1.5em 1em;
+}
+
+.pic-item {
+    text-align: center;
+}
+
+.pic-item:not(:last-child) {
+    margin-bottom: 5em;
+}
+
+.pic-item:first-of-type {
+    margin-top: 5em;
+}
+
+.pic-item img {
+    max-height: 7em;
+}
+
+.pic-text h2 {
+    margin: 0;
+}
+
+.pic-text p {
+    text-align: justify;
+    line-height: 1.4em;
+}
+
+.pic-text img {
+    height: .9em;
 }
