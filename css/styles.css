@@ -1,34 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
 
 :root {
     --main-dark: #35648c;
-    --main-med: #6595BF;
-    --main-light: #A3C9D9;
-    --secondary: #6FA8BF;
-    --accent: #F2DC99;
+    --main-med: #6595bf;
+    --main-light: #a3c9d9;
+    --secondary: #6fa8bf;
+    --accent: #f2dc99;
 }
 
-* {
-    font-family: 'Fira Code', monospace;
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Fira Code", monospace;
     margin: 0;
     padding: 0;
-    font-size: .9em;
+    font-size: 0.9em;
 }
 
-h1, h2 {
+h1,
+h2 {
     font-weight: bolder;
 }
 
 h1 {
-    font-size: 1.6em;
+    font-size: 1.6rem;
 }
 
 h2 {
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 
-h1, h2, p {
-    margin-bottom: .75em;
+h1,
+h2,
+p {
+    margin-bottom: 0.75em;
 }
 
 /* MOBILE FIRST */
@@ -44,7 +57,7 @@ h1, h2, p {
     width: 100%;
     z-index: 2;
     height: 8em;
-    padding: .25em 0 0;
+    padding: 0.25em 0 0;
     margin: 0;
     box-shadow: 0px 1px 10px #555;
 }
@@ -68,15 +81,6 @@ h1, h2, p {
     left: 1em;
 }
 
-.menu-header.menu-active {
-    display: block;
-    position: relative;
-    top: 4px;
-    border-top: 2px var(--accent) dashed;
-    border-bottom: 2px var(--accent) dashed;
-
-}
-
 .menu-header {
     display: none;
 }
@@ -87,8 +91,8 @@ h1, h2, p {
     list-style-type: none;
 }
 
-.menu-header ul li{
-    padding: .7em 0;
+.menu-header ul li {
+    padding: 0.7em 0;
     text-align: center;
 }
 
@@ -100,11 +104,20 @@ h1, h2, p {
     color: var(--main-light);
 }
 
-.menu-header ul li:focus, 
-.menu-header ul li:hover{
+.menu-header ul li:focus,
+.menu-header ul li:hover {
     background-color: var(--secondary);
-    color:var(--main-dark);
+    color: var(--main-dark);
     cursor: pointer;
+}
+
+.menu-header ul .menu-active-item {
+    background-color: var(--main-med);
+}
+
+.menu-header ul .menu-active-item a {
+    color: var(--main-dark);
+    font-weight: 700;
 }
 
 .menu-header ul li:not(:last-child) {
@@ -119,12 +132,12 @@ h1, h2, p {
 }
 
 .menu-active .bar {
-    fill: var(--main-med)
+    fill: var(--main-med);
 }
 
 /* 
     footer
-*/  
+*/
 
 .footer {
     position: absolute;
@@ -135,7 +148,7 @@ h1, h2, p {
 
 .menu-footer {
     text-align: center;
-    padding: .4em;
+    padding: 0.4em;
 }
 
 .menu-footer h3 {
@@ -162,7 +175,7 @@ h1, h2, p {
     text-align: center;
     margin: 0.5em 1em;
     min-width: 5em;
-    font-size: .5em;
+    font-size: 0.5rem;
 }
 
 .gh a img {
@@ -182,8 +195,8 @@ h1, h2, p {
 
 @keyframes expand-in {
     0% {
-        transform: scaleX(.5);
-        opacity: .01;
+        transform: scaleX(0.5);
+        opacity: 0.01;
     }
 
     50% {
@@ -221,15 +234,24 @@ h1, h2, p {
 }
 
 .pic-text img {
-    height: .9em;
+    height: 0.9em;
 }
 
+@media (max-width: 599px) {
+    .menu-header.menu-active {
+        display: block;
+        position: relative;
+        top: 4px;
+        border-top: 2px var(--accent) dashed;
+        border-bottom: 2px var(--accent) dashed;
+    }
+}
 /* 
     Tablet and Desktop
 */
 
 @media (min-width: 600px) {
-    * {
+    body {
         font-size: 1em;
     }
     #main {
@@ -237,7 +259,7 @@ h1, h2, p {
         padding: 1.5em 3.5em;
         box-sizing: border-box;
         box-shadow: 0 0 30px var(--main-light);
-    }   
+    }
 
     .header {
         height: 9em;
@@ -257,11 +279,17 @@ h1, h2, p {
     .menu-header ul li {
         display: inline-block;
         margin: 0;
-        padding: .4em 2em;
-        font-size: .8em;
+        padding: 0;
+        font-size: 0;
     }
 
-    .menu-header ul li:not(:last-child){
+    .menu-header ul li a {
+        margin: 0;
+        padding: 0.4em 2em;
+        font-size: 0.8rem;
+    }
+
+    .menu-header ul li:not(:last-child) {
         border-bottom: none;
         border-right: 2px dotted var(--accent);
     }
@@ -278,6 +306,20 @@ h1, h2, p {
         display: table;
         box-shadow: 1px 1px 5px var(--main-dark);
         padding: 2em 2em 2em 0;
+        margin-top: 2em;
+        border-radius: 2em;
+    }
+
+    .pic-item:first-of-type {
+        margin-top: 2em;
+    }
+
+    .pic-item:not(:last-child) {
+        margin-bottom: 2em;
+    }
+    .pic-item:nth-child(2n) {
+        direction: rtl;
+        padding: 2em 0 2em 2em;
     }
 
     .pic-item .pic-pic {
@@ -300,6 +342,7 @@ h1, h2, p {
 
     .pic-item .pic-text {
         width: 70%;
+        direction: ltr;
     }
 
     .pic-item > * {
