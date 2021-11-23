@@ -259,6 +259,7 @@ p {
         padding: 1.5em 3.5em;
         box-sizing: border-box;
         box-shadow: 0 0 30px var(--main-light);
+        min-height: calc(100vh - 9em - 4.5em);
     }
 
     .header {
